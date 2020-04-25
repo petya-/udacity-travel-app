@@ -1,0 +1,9 @@
+@import "./resets.scss";
+@import "./header.scss";
+@import "./footer.scss";
+
+body {
+  background: url("../media/background-img.jpg") no-repeat center center fixed;
+  background-position: 100% 0;
+  background-size: 100%;
+}

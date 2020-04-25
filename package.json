@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-    "start": "node ./src/server/app.js"
+    "start": "node ./src/server/app.js",
+    "build:dev": "webpack-dev-server --open --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,10 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
-    "babel-loader": "^8.1.0"
+    "babel-loader": "^8.1.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.2.0",
+    "sass-loader": "^8.0.2",
+    "webpack-dev-server": "^3.10.3"
   }
 }

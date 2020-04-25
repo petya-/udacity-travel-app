@@ -1,0 +1,19 @@
+{
+  "name": "udacity-travel-app",
+  "version": "1.0.0",
+  "description": "FEND Capstone - Travel App",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petya-/udacity-travel-app.git"
+  },
+  "author": "Petya Buchkova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petya-/udacity-travel-app/issues"
+  },
+  "homepage": "https://github.com/petya-/udacity-travel-app#readme"
+}

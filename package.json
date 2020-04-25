@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/petya-/udacity-travel-app/issues"
   },
-  "homepage": "https://github.com/petya-/udacity-travel-app#readme"
+  "homepage": "https://github.com/petya-/udacity-travel-app#readme",
+  "dependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
 }

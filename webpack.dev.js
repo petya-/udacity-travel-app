@@ -8,9 +8,8 @@ module.exports = {
     main: "./src/client/index.js",
   },
   output: {
-    path: path.join(__dirname, "dist"),
-    publicPath: "/",
-    filename: "[name].js",
+    libraryTarget: "var",
+    library: "Client",
   },
   target: "web",
   devtool: "source-map",

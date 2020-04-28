@@ -1,5 +1,6 @@
 //URL and API Key for GeoNames Web Service
-const geonamesBaseURL = "http://api.geonames.org/searchJSON?formatted=true&q=";
+const geonamesBaseURL =
+  "https://secure.geonames.org/searchJSON?formatted=true&q=";
 const geonamesUsername = "petya";
 
 //URL and API Key for WeatherBit

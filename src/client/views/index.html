@@ -44,13 +44,30 @@
         <h1>Your trips</h1>
         <div id="trips__container">
           <p id="no-trips__message">No active trips.</p>
+
         </div>
       </div>
 
     </div>
 
   </main>
-  <footer></footer>
+  <footer><small>&copy; Petya Buchkova</small></footer>
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    } else {
+      console.info("serviceWorker not supported");
+
+    }
+  </script>
 </body>
 
 </html>

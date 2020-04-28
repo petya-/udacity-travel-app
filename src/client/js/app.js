@@ -14,8 +14,10 @@ let tripData = {};
 // Request user trips on page load
 document.addEventListener("DOMContentLoaded", async function () {
   const trips = await getTrips();
-  setLocalTrips(trips);
-  buildTripsView();
+  if (trips.length) {
+    setLocalTrips(trips);
+    buildTripsView();
+  }
 });
 
 /* Function called by event listener */

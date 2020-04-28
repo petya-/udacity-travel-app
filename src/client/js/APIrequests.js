@@ -1,12 +1,23 @@
-// Personal API Key for GeoNames Web Service
+//URL and API Key for GeoNames Web Service
 const geonamesBaseURL = "http://api.geonames.org/searchJSON?formatted=true&q=";
 const geonamesUsername = "petya";
 
+//URL and API Key for WeatherBit
 const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/current?city=";
 const weatherbitAPIKey = "b221ade3027d4921a2ff592b6372af95";
 
+//URL and API Key for Pixabay
 const pixabayURL = "https://pixabay.com/api/";
 const pixabayAPIKey = "16258949-243f4ab8f7fb0f7d91fa289fd";
+
+//URL for travel-app API
+const isLocalEnvironment =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+
+const baseURL = isLocalEnvironment
+  ? "http://localhost:8000"
+  : "https://udacity-travel-app.herokuapp.com/";
 
 const getGeoData = async (city) => {
   if (!city) alert("You must enter a city");
@@ -42,7 +53,7 @@ const getPixabayImage = async (location) => {
 
 const getTrips = async () => {
   try {
-    const trips = await fetch("http://127.0.0.1:8000/trips");
+    const trips = await fetch(`${baseURL}/trips`);
     return trips.json();
   } catch (error) {
     console.error(error);
@@ -51,7 +62,7 @@ const getTrips = async () => {
 
 const postTrip = async (trip) => {
   try {
-    const trips = await fetch("http://127.0.0.1:8000/trips", {
+    const trips = await fetch(`${baseURL}/trips`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +77,7 @@ const postTrip = async (trip) => {
 
 const deleteTrip = async (tripId) => {
   try {
-    const trips = await fetch(`http://127.0.0.1:8000/trips/${tripId}`, {
+    const trips = await fetch(`${baseURL}/trips/${tripId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

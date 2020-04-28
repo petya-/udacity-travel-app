@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(express.static("src/cleint"));
+app.use(express.static("dist"));
 
 app.use(routes);
 

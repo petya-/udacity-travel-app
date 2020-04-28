@@ -58,7 +58,7 @@ strong {
   @media screen and (min-width: 851px) and (max-width: 1000px) {
     grid-gap: 15vh;
   }
-  @media screen and (min-width: 1001px) and (max-width: $break-large) {
+  @media screen and (min-width: 1001px) and (max-width: 1499px) {
     grid-gap: 20vh;
   }
   @media screen and (min-width: 1500px) {
@@ -140,6 +140,10 @@ strong {
   input[type="submit"] {
     color: $green-color;
     background-color: $white-color;
+    &:hover {
+      color: $white-color;
+      background-color: $orange-color;
+    }
   }
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -210,7 +214,7 @@ strong {
     font-family: $roboto-slab;
     font-weight: 400;
     font-size: 2.5em;
-    color: $black-color;
+    color: $white-color;
   }
 }
 
@@ -220,7 +224,13 @@ strong {
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  text-align: center;
+  #no-trips__message {
+    margin-top: 6vh;
+    font-size: 1em;
+    font-style: italic;
+  }
 }
 
 .trip__card {
@@ -234,16 +244,6 @@ strong {
   }
   @media screen and (min-width: 1500px) {
     margin: 4vh;
-  }
-}
-
-.trip__card-small {
-  width: 45%;
-  @media screen and (max-width: $break-medium) {
-    width: 100%;
-  }
-  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
-    width: 100%;
   }
 }
 

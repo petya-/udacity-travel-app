@@ -23,7 +23,7 @@
             coutry information.</p>
         </div>
 
-        <form onsubmit="Client.submitForm(event)">
+        <form onsubmit="Client.submitForm(event)" autocomplete="off">
           <label for="city"></label>
           <input id="city" type="text" placeholder="Enter city" required>
           <label for="startDate">Start date:</label>
@@ -42,11 +42,12 @@
       </div>
       <div id="trips">
         <h1>Your trips</h1>
-        <div id="trips__container"></div>
+        <div id="trips__container">
+          <p id="no-trips__message">No active trips.</p>
+        </div>
       </div>
 
     </div>
-
 
   </main>
   <footer></footer>

@@ -1,10 +1,11 @@
 const router = require("express").Router();
+const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
 let savedTrips = [];
 
 router.get("/", function (req, res, next) {
-  res.sendFile("/client/views/index.html", { root: __dirname + "/.." });
+  res.sendFile(path.resolve("dist/index.html"));
 });
 
 router.get("/trips", function (req, res, next) {

@@ -25,13 +25,13 @@ npm install
 Run the following command if you want to bundle the modules for production:
 
 ```js
-npm run build-prod
+npm run build:prod
 ```
 
 or in development mode:
 
 ```js
-npm run build-dev
+npm run build:dev
 ```
 
 ### Running the server

@@ -4,27 +4,158 @@
 @import "./footer.scss";
 
 body {
-  background: url("../media/background-img-2.jpg") no-repeat center center fixed;
-  background-position: 100% 0;
+  background: url("../media/background-img-small.jpg") no-repeat center center
+    fixed;
+  background-position: top;
   background-size: 100%;
+  background-attachment: scroll;
   background-color: #ad764a;
-  font-family: $body-font;
-  font-weight: normal;
+  -ms-overflow-style: none;
+
+  @media screen and (max-width: $break-medium) {
+    background: url("../media/background-img-large.jpg") no-repeat center center
+      fixed;
+    background-position: top;
+    background-size: 100%;
+    background-attachment: scroll;
+    background-color: #ad764a;
+    font-family: $body-font;
+    font-weight: normal;
+    -ms-overflow-style: none;
+    font-size: 0.5em;
+  }
+
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+    background: url("../media/background-img-medium.jpg") no-repeat center
+      center fixed;
+    background-position: top;
+    background-size: 100%;
+    background-attachment: scroll;
+    background-color: #ad764a;
+    font-family: $body-font;
+    font-weight: normal;
+    -ms-overflow-style: none;
+    font-size: 0.8em;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+strong {
+  font-weight: bold;
 }
 
 .container {
   display: grid;
-  grid-template-areas: "search search" "search search" "trips trips" "trips trips";
-  width: 100%;
-  height: 70%;
+  grid-auto-rows: auto;
+  grid-gap: 3vh;
+  justify-items: center;
+  @media screen and (min-width: 750px) and (max-width: 850px) {
+    grid-gap: 9vh;
+  }
+  @media screen and (min-width: 851px) and (max-width: 1000px) {
+    grid-gap: 15vh;
+  }
+  @media screen and (min-width: 1001px) and (max-width: $break-large) {
+    grid-gap: 20vh;
+  }
+  @media screen and (min-width: 1500px) {
+    grid-gap: 15vh;
+  }
 }
+
+/* Trip Form*/
 
 #trip-form__container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  grid-area: search;
   align-items: center;
+  height: 25vh;
+  @media screen and (max-width: $break-small) {
+    margin-top: 2vh;
+    height: 15vh;
+    font-size: 1em;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    margin-top: 5vh;
+    height: 15vh;
+    font-size: 1em;
+  }
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+    margin-top: 10vh;
+    height: 20vh;
+    font-size: 1.2em;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+  }
+  input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+    height: 4vh;
+    width: 25vh;
+    margin: 1vh;
+    border: none;
+    border: none;
+    background-color: $green-color;
+    font-size: 1.2em;
+    font-weight: 150;
+    color: $white-color;
+    border-radius: 4px;
+    &:hover {
+      color: $white-color;
+      background-color: $orange-color;
+    }
+    @media screen and (max-width: $break-medium) {
+      font-size: 0.5em;
+      height: 3vh;
+      width: 24vw;
+    }
+    @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+      font-size: 0.8em;
+      height: 3vh;
+      width: 24vw;
+    }
+  }
+  label {
+    font-size: 1em;
+    color: $white-color;
+    @media screen and (max-width: $break-medium) {
+      display: none;
+    }
+    @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+      display: none;
+    }
+  }
+  input[type="submit"] {
+    color: $green-color;
+    background-color: $white-color;
+  }
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $white-color;
+    opacity: 1; /* Firefox */
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $white-color;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $white-color;
+  }
+
   h1 {
     font-family: $roboto-slab;
     font-weight: italic;
@@ -41,14 +172,154 @@ body {
   text-align: center;
 }
 
+/* New Trip*/
+#new-trip {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #385d6a;
+  width: 70vh;
+  border-radius: 2%;
+  text-align: center;
+  padding: 2%;
+  margin-top: 2vh;
+  @media screen and (max-width: $break-medium) {
+    width: auto;
+  }
+  .headline {
+    font-family: $roboto-slab;
+    font-weight: 300;
+    font-size: 2.5em;
+    color: $white-color;
+  }
+  .description {
+    margin-top: 1vh;
+  }
+}
+
+/* Trips List*/
 #trips {
   display: flex;
-  justify-content: center;
-  grid-area: trips;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 3vh;
+
   h1 {
     font-family: $roboto-slab;
-    font-weight: italic;
+    font-weight: 400;
     font-size: 2.5em;
     color: $black-color;
+  }
+}
+
+#trips__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.trip__card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40%;
+  margin: 2vh;
+  @media screen and (max-width: $break-medium) {
+    font-size: 1em;
+  }
+  @media screen and (min-width: 1500px) {
+    margin: 4vh;
+  }
+}
+
+.trip__card-small {
+  width: 45%;
+  @media screen and (max-width: $break-medium) {
+    width: 100%;
+  }
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+    width: 100%;
+  }
+}
+
+.trip-image {
+  width: 20vw;
+  height: 24vh;
+  border-radius: 25px;
+  @media screen and (max-width: $break-medium) {
+    width: 45vw;
+    height: 20vh;
+  }
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+    height: 25vh;
+    width: 40vw;
+  }
+}
+
+.trip-description__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5vh;
+  p {
+    margin-top: 1vh;
+  }
+}
+
+.trip-weather__container {
+  h2 {
+    font-weight: bold;
+    color: $green-color;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 2vh;
+}
+
+.weather-icon {
+  height: 4vh;
+  width: 2vw;
+  @media screen and (max-width: $break-medium) {
+    height: 5vh;
+    width: 8vw;
+  }
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+    height: 6vh;
+    width: 6vw;
+  }
+  @media screen and (min-width: $break-large) {
+    height: 8vh;
+    width: 4vw;
+  }
+}
+
+.card-button {
+  margin-top: 2vh;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  height: 4vh;
+  width: 12vh;
+}
+
+.green-button {
+  background-color: $green-color;
+  &:hover {
+    color: $green-color;
+    background-color: $white-color;
+  }
+}
+
+.white-button {
+  background-color: $white-color;
+  &:hover {
+    color: $white-color;
+    background-color: $orange-color;
   }
 }

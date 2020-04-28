@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
 
-const savedTrips = [];
+let savedTrips = [];
 
 router.get("/", function (req, res, next) {
   res.sendFile("/client/views/index.html", { root: __dirname + "/.." });
@@ -15,6 +15,12 @@ router.post("/trips", function (req, res, next) {
   const { trip } = req.body;
   trip.id = uuidv4();
   savedTrips.push(trip);
+  res.status(200).json(savedTrips);
+});
+
+router.delete("/trips/:id", function (req, res, next) {
+  const { id } = req.params;
+  savedTrips = savedTrips.filter((trip) => trip.id !== id);
   res.status(200).json(savedTrips);
 });
 

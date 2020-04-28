@@ -1,4 +1,4 @@
 import "./styles/main.scss";
-import {submitForm} from "./js/app.js";
+import { submitForm, removeTrip, addTrip } from "./js/app.js";
 
-export {submitForm};
+export { submitForm, removeTrip, addTrip };

@@ -1,19 +1,21 @@
 import {
   getUserInput,
   buildTripObject,
+  buildTripsView,
+  buildAddTripView,
   requestDataFromAPIs,
   getLocalTrips,
   setLocalTrips,
 } from "./helpers";
 import { getTrips, postTrip, deleteTrip } from "./APIrequests";
+
 let tripData = {};
-let trips = [];
 
 // Request user trips on page load
 document.addEventListener("DOMContentLoaded", async function () {
-  trips = await getTrips();
-  console.log("trips on load", trips);
+  const trips = await getTrips();
   setLocalTrips(trips);
+  buildTripsView();
 });
 
 /* Function called by event listener */
@@ -24,33 +26,21 @@ const submitForm = async (event) => {
   const { geoData, weatherData, imagesData } = await requestDataFromAPIs(city);
 
   tripData = buildTripObject(geoData, weatherData, imagesData);
-  const newTrip = await postTrip(tripData);
+  buildAddTripView(tripData);
+};
 
-  trips.push(newTrip);
-  setLocalTrips(trips)s;
+// delete trip
+const removeTrip = async (event) => {
+  event.preventDefault();
+  const trips = await deleteTrip(event.target.id);
+  setLocalTrips(trips);
   buildTripsView();
 };
 
-const buildTripsView = () => {
-  const trips = getLocalTrips();
-  console.log("create view");
-  console.log(trips);
-
-  const tripsContainer = document.getElementById("trips__container");
-  tripsContainer.textContent = "";
-  const fragment = document.createDocumentFragment(); // DocumentFragment instead of a <div> for permormance
-
-  for (let trip of trips) {
-    const newElement = document.createElement("div");
-    newElement.innerHTML = `<div class="trip__card">
-          <p><strong>City:</strong></p> <p><span>${trip.city}</span></p>
-        </div>`;
-
-    newElement.classList.add("flex-item");
-    fragment.appendChild(newElement);
-  }
-
-  tripsContainer.appendChild(fragment); // reflow and repaint once here
+const addTrip = async (event) => {
+  const updatedTrips = await postTrip(tripData);
+  setLocalTrips(updatedTrips);
+  buildTripsView();
 };
 
-export { submitForm };
+export { submitForm, removeTrip, addTrip };

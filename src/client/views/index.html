@@ -8,8 +8,8 @@
 
 <body>
   <header>
-    <div class="logo">
-      <img src="../media/logo.png" alt="logo">
+    <div class="logo__container">
+      <img id="logo" src="../media/logo.png" alt="logo">
 
     </div>
 
@@ -25,18 +25,24 @@
 
         <form onsubmit="Client.submitForm(event)">
           <label for="city"></label>
-          <input id="city" type="text" placeholder="Enter city">
-          <label for="startDate"></label>
-          <input id="startDate" type="date" placeholder="Enter city">
-          <label for="endDate"></label>
-          <input id="endDate" type="date" placeholder="Enter city">
+          <input id="city" type="text" placeholder="Enter city" required>
+          <label for="startDate">Start date:</label>
+          <input id="startDate" type="date" required>
+          <label for="endDate">End date:</label>
+          <input id="endDate" type="date" required>
           <input type="submit">
         </form>
+      </div>
+      <div id="new-trip">
+        <div>
+          <h2 class="headline">New trip</h2>
+          <p class="description">Make sure to save your trip so you can get back to it later.</p>
+        </div>
+        <div id="new-trip__container"></div>
       </div>
       <div id="trips">
         <h1>Your trips</h1>
         <div id="trips__container"></div>
-
       </div>
 
     </div>

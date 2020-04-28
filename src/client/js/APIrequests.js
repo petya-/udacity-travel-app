@@ -15,7 +15,7 @@ const getGeoData = async (city) => {
     const response = await fetch(geonamesEndpoint);
     return response.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -26,7 +26,7 @@ const getWeatherData = async (city) => {
     const response = await fetch(weatherbitEndpoint);
     if (response) return response.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -36,7 +36,7 @@ const getPixabayImage = async (location) => {
     let response = await fetch(pixabayEndpoint);
     return response.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -45,23 +45,37 @@ const getTrips = async () => {
     const trips = await fetch("http://127.0.0.1:8000/trips");
     return trips.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
 const postTrip = async (trip) => {
-  const trips = await fetch("http://127.0.0.1:8000/trips", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ trip }),
-  });
-  return trips.json();
+  try {
+    const trips = await fetch("http://127.0.0.1:8000/trips", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ trip }),
+    });
+    return trips.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const deleteTrip = async () => {
-  // delete trip data to API
+const deleteTrip = async (tripId) => {
+  try {
+    const trips = await fetch(`http://127.0.0.1:8000/trips/${tripId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return trips.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export {

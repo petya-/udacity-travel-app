@@ -58,4 +58,4 @@ npm run test:watch
 
 ## Deployment
 
-You can find the api hosted on [Heroku]()
+You can find the api hosted on [Heroku](https://udacity-travel-app.herokuapp.com/)

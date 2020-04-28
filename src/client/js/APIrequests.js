@@ -17,7 +17,7 @@ const isLocalEnvironment =
 
 const baseURL = isLocalEnvironment
   ? "http://localhost:8000"
-  : "https://udacity-travel-app.herokuapp.com/";
+  : "https://udacity-travel-app.herokuapp.com";
 
 const getGeoData = async (city) => {
   if (!city) alert("You must enter a city");

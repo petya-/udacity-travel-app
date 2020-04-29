@@ -82,12 +82,10 @@ strong {
 
   @media screen and (max-width: $break-small) {
     margin-top: 0;
-
     font-size: 1em;
   }
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
     margin-top: 0;
-
     font-size: 1.5em;
   }
   @media screen and (min-width: $break-medium) and (max-width: 1000px) {

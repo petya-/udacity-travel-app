@@ -4,8 +4,8 @@
   "description": "FEND Capstone - Travel App",
   "main": "app.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "npm run build:prod && jest",
+    "test:watch": "npm run build:prod && jest --watch",
     "start": "node ./src/server/app.js",
     "build:prod": "webpack --config webpack.prod.js",
     "build:dev": "webpack-dev-server --open --config webpack.dev.js",

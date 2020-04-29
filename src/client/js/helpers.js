@@ -19,21 +19,23 @@ const getUserInput = () => {
 
 // construct object from APIs data and user input
 const buildTripObject = (geoData, weatherData, imagesData) => {
-  let tripObject = {};
-  tripObject.city = geoData.geonames[0].toponymName;
-  tripObject.country = geoData.geonames[0].countryName;
-  tripObject.countryCode = geoData.geonames[0].countryCode;
-  tripObject.lat = geoData.geonames[0].lat;
-  tripObject.lng = geoData.geonames[0].lng;
-  tripObject.population = geoData.geonames[0].population;
-  tripObject.weather = weatherData.data[0].weather;
-  tripObject.weather.temp = weatherData.data[0].temp;
-  tripObject.imageURL = imagesData.hits[0].largeImageURL;
-  tripObject.startDate = getUserInput().startDate;
-  tripObject.endDate = getUserInput().endDate;
-  tripObject.duration = calculateTripDuration();
-
-  return tripObject;
+  return {
+    city: geoData.geonames[0].toponymName,
+    country: geoData.geonames[0].countryName,
+    countryCode: geoData.geonames[0].countryCode,
+    lat: geoData.geonames[0].lat,
+    lng: geoData.geonames[0].lng,
+    population: geoData.geonames[0].population,
+    weather: weatherData.data[0].weather,
+    weather: {
+      ...weatherData.data[0].weather,
+      temp: weatherData.data[0].temp,
+    },
+    imageURL: imagesData.hits[0].largeImageURL,
+    startDate: getUserInput().startDate,
+    endDate: getUserInput().endDate,
+    duration: calculateTripDuration(),
+  };
 };
 
 const buildTripsView = () => {

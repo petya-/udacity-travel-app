@@ -237,17 +237,11 @@ strong {
 
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
     font-size: 1.5em;
-    // margin-top: 20vh;
   }
-  // @media screen and (min-width: $break-medium) and (max-width: 1020px) {
-  //   margin-top: 30vh;
-  // }
+
   @media screen and (min-width: 1020px) and (max-width: $break-large) {
-    // margin-top: 40vh;
   }
-  @media screen and (min-width: $break-large) {
-    // margin-top: 20vh;
-  }
+
   h1 {
     font-family: $roboto-slab;
     font-weight: 400;

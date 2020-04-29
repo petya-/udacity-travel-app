@@ -67,20 +67,7 @@ strong {
   display: grid;
   min-height: 90%;
   grid-template-columns: 100%;
-  // grid-auto-rows: auto 1fr auto;
   justify-items: center;
-  @media screen and (min-width: 750px) and (max-width: 850px) {
-    grid-gap: 9vh;
-  }
-  @media screen and (min-width: 851px) and (max-width: 1000px) {
-    grid-gap: 15vh;
-  }
-  @media screen and (min-width: 1001px) and (max-width: 1499px) {
-    grid-gap: 10vh;
-  }
-  @media screen and (min-width: 1500px) {
-    grid-gap: 15vh;
-  }
 }
 
 /* Trip Form*/
@@ -90,22 +77,28 @@ strong {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 25vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 
   @media screen and (max-width: $break-small) {
-    margin-top: 12vh;
-    height: 15vh;
     font-size: 1em;
   }
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
-    margin-top: 5vh;
-    height: 15vh;
-    font-size: 1em;
+    font-size: 1.5em;
   }
-  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
-    margin-top: 10vh;
-    height: 20vh;
+  @media screen and (min-width: $break-medium) and (max-width: 1000px) {
+    margin-top: 15vh;
+    margin-bottom: 15vw;
     font-size: 1.2em;
+  }
+  @media screen and (min-width: 1001px) and (max-width: $break-large) {
+    margin-top: 15vh;
+    margin-bottom: 20vw;
+  }
+
+  @media screen and (min-width: $break-large) {
+    margin-top: 10vh;
+    margin-bottom: 10vw;
   }
 
   form {
@@ -123,7 +116,7 @@ strong {
     width: 100%;
     line-height: 16px;
     margin: 10px 0;
-    height: 4vh;
+    height: 5vh;
     width: 25vh;
     margin: 1vh;
     border: none;
@@ -138,18 +131,17 @@ strong {
       background-color: $orange-color;
     }
     @media screen and (max-width: $break-small) {
-      font-size: 1em;
-      height: 4vh;
-      width: 60vw;
+      text-align: center;
+      font-size: 1.3em;
+      height: 8vh;
+      width: 65vw;
     }
     @media screen and (min-width: $break-small) and (max-width: $break-medium) {
-      font-size: 0.5em;
-      height: 3vh;
-      width: 24vw;
+      font-size: 1.5em;
+      width: 30vw;
     }
     @media screen and (min-width: $break-medium) and (max-width: $break-large) {
-      font-size: 0.8em;
-      height: 3vh;
+      font-size: 1.3em;
       width: 24vw;
     }
   }
@@ -213,8 +205,15 @@ strong {
   border-radius: 2%;
   text-align: center;
   padding: 2%;
-  margin-top: 2vh;
+  margin-bottom: 5vh;
   @media screen and (max-width: $break-medium) {
+    width: 96vw;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    font-size: 1.8em;
+    width: auto;
+  }
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
     width: auto;
   }
   .headline {
@@ -236,6 +235,19 @@ strong {
   align-items: center;
   margin-top: 3vh;
 
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    font-size: 1.5em;
+    // margin-top: 20vh;
+  }
+  // @media screen and (min-width: $break-medium) and (max-width: 1020px) {
+  //   margin-top: 30vh;
+  // }
+  @media screen and (min-width: 1020px) and (max-width: $break-large) {
+    // margin-top: 40vh;
+  }
+  @media screen and (min-width: $break-large) {
+    // margin-top: 20vh;
+  }
   h1 {
     font-family: $roboto-slab;
     font-weight: 400;
@@ -248,10 +260,14 @@ strong {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+  margin-top: 8vh;
   justify-content: space-evenly;
   text-align: center;
+  @media screen and (max-width: $break-small) {
+    margin-top: 0;
+    width: auto;
+    height: auto;
+  }
   #no-trips__message {
     margin-top: 6vh;
     font-size: 1em;
@@ -265,7 +281,12 @@ strong {
   align-items: center;
   height: 40%;
   margin: 2vh;
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: $break-small) {
+    margin-top: 6vh;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    margin-top: 6vh;
+
     font-size: 1em;
   }
   @media screen and (min-width: 1500px) {
@@ -311,13 +332,18 @@ strong {
 .weather-icon {
   height: 4vh;
   width: 2vw;
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: $break-small) {
     height: 5vh;
     width: 8vw;
   }
-  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
     height: 6vh;
     width: 6vw;
+  }
+  @media screen and (min-width: $break-medium) and (max-width: $break-large) {
+    height: 6vh;
+    width: 4vw;
   }
   @media screen and (min-width: $break-large) {
     height: 8vh;

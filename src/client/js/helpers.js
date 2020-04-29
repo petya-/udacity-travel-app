@@ -64,7 +64,7 @@ const buildTripsView = () => {
           </div>
           <button id="${
             trip.id
-          }" class="card-button green-button" onclick="Client.removeTrip(event)">Delete trip</button>
+          }" class="card-button green-button" onclick="Client.removeTrip(event)">Remove</button>
        `;
 
     newElement.classList.add("trip__card");
